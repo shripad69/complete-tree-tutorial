@@ -2,7 +2,8 @@
     // use two stack ek mdhe direct node push kra jyast apla answer asl
     // ani ekat curr node asel jevha wala empty hoil teva answer vrchya stack mdhe asel 
     // agodr left add mg ntr right beacuse answer stack mdhe reverse mdhe store ahe 
-    
+    // OR 
+    // we can replace the second stack with a vector and reverse it before returning
 
 #include <bits/stdc++.h>
 using namespace std;
