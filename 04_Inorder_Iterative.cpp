@@ -34,9 +34,11 @@ public:
             }
             else {
                 if (st.empty()) return ans;
+                
                 TreeNode * curr = st.top();
-                ans.push_back(curr ->val);
                 st.pop();
+
+                ans.push_back(curr ->val);
                 node = curr -> right;
             }
         }
