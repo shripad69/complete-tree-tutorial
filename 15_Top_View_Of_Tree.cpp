@@ -51,17 +51,24 @@ class Solution {
         
     // }
 
+
+
+    // LOGIC 2 -
+    // now here we going to assign the verticals using the bfs not by dfs 
+    // so as we are traversing level by level the node at the top will be visited at first 
+    // and push the first visited for the given x and after that dont push any other node for that same x
+
     vector <int> topView (Node * root) {
         // now use bfs to rank the nodes with x and y us
         // also use the set to store which verticals are done 
         // as we are doing level order the node at the top will be visited first 
-        
 
-        set <int> verticals;
+
         map <int, int> mpp;
 
-        queue <pair <Node *, pair <int, int>>> q;
-        q.push({root, {0, 0}});
+        // queue <pair <Node *, pair <int, int>>> q;
+        queue <pair <Node * , int>> q;
+        q.push({root, 0});
 
         while (!q.empty()) {
 
@@ -72,18 +79,16 @@ class Solution {
 
                 // now fr.fisrt is node itself fr.second.first is the x and fr.second.second is the y 
                 Node * curr = fr.first;
-                int x = fr.second.first;
-                int y = fr.second.second;
+                int x = fr.second;
 
-                if (!verticals.count(x)) {
+                if (!mpp.count(x)) {
                     mpp[x] = curr -> data;
-                    verticals.insert(x);
                 }
                 if (curr -> left) {
-                    q.push({curr -> left, {x - 1, y + 1}});
+                    q.push({curr -> left, x - 1});
                 }
                 if (curr -> right) {
-                    q.push({curr -> right, {x + 1, y + 1}});
+                    q.push({curr -> right, x + 1});
                 }
             }
         }
@@ -92,9 +97,10 @@ class Solution {
         for (auto i : mpp) {
             ans.push_back(i.second);
         }
-
         return ans;
     }
+
+
 };
 
 
