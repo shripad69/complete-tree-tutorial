@@ -1,6 +1,4 @@
 #include <bits/stdc++.h>
-#include <cstddef>
-#include <system_error>
 using namespace std;
 
 
@@ -26,7 +24,7 @@ public:
 
     // find the floor node of the given head of the subtree
     TreeNode * findFloor (TreeNode * node) {
-        while (node != nullptr) {
+        while (node -> right != nullptr) {
             node = node -> right;
         }
         return node;
